@@ -5,7 +5,7 @@ const listCourses = document.querySelector('#list-cart tbody');
 const emptyCartBtn = document.getElementById('empty-cart');
 
 //listeners
-loadEventListeners();
+loadEventListeners()
 function loadEventListeners(){
     //When "Add Cart" Is Clicked
     courses.addEventListener('click', buyCourse);
@@ -53,7 +53,7 @@ function insertInCart(course){
     <td>
     ${course.price}
     </td>
-    <td>
+    <td class="cross">
     <a href = "#" class = "deleteCourse" data-id = "${course.id}">x</a>
     </td>
     ` ;
@@ -84,10 +84,10 @@ function emptyCart(){
 //Store courses in the cart to local storage
 
 function saveCourseLocalStorage(course){
-    let coursesLS;
+    let courses;
     courses = getCoursesLocalStorage();
-    course.push(course);
-    localStorage.setItem('Courses', JSON.stringify(courses));
+    courses.push(course);
+    localStorage.setItem('courses', JSON.stringify(courses));
 }
 function getCoursesLocalStorage(){
     let coursesLS;
@@ -100,7 +100,7 @@ function getCoursesLocalStorage(){
     return coursesLS;
 }
 function readLocalStorage(){
-    let courseLS;
+    let coursesLS;
     coursesLS = getCoursesLocalStorage();
     coursesLS.forEach(function (course){
         const row = document.createElement('tr');
@@ -114,7 +114,7 @@ function readLocalStorage(){
         <td>
         ${course.price}
         </td>
-        <td>
+        <td class="cross">
         <a href = "#" class = "deleteCourse" data-id = "${course.id}">x</a>
         </td>
         ` ;
@@ -124,8 +124,8 @@ function readLocalStorage(){
 function deleteCourseLocalStorage(course){
     let coursesLS;
     coursesLS = getCoursesLocalStorage();
-    coursesLS.forEach(function (coursesLS, index) {
-        if (coursesLS.id === course){
+    coursesLS.forEach(function (courseLS, index) {
+        if (courseLS.id === course){
             coursesLS.splice(index,1);
         }
     });
@@ -133,4 +133,3 @@ function deleteCourseLocalStorage(course){
 }
 function emptyLocalStorage(){
     localStorage.clear();
-}

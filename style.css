@@ -71,11 +71,13 @@ background-color: white;
 #list-courses{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .courses-container{
     display: flex;
     justify-content: space-around;
     flex-flow: wrap;
+    width: 80%;
 }
 .course-card{
     width: 300px;
@@ -115,14 +117,39 @@ background-color: white;
     color: white;
     margin-top: 20px;
 }
+table{
+    display: flex;
+    flex-direction: column;
+}
 tbody tr{
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
     height: 100px;
     width: 100%;
 }
 tbody tr td{
     text-align: center;
-    background-color: red;
+    width: 100px;
+    
 }
+
+tbody tr td img{
+    text-align: center;
+    width: 100%;
+    
+}
+
+.cross{
+    width: 50px;
+}
+
+.deleteCourse{
+    text-decoration: none;
+    color: white;
+    display: block;
+    background-color: red;
+    border-radius: 30px;
+    height: 40px;
+    width: 40px;
+    font-size: 25px;
